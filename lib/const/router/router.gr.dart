@@ -31,7 +31,7 @@ abstract class $AppRouter extends _i11.RootStackRouter {
 
   @override
   final Map<String, _i11.PageFactory> pagesMap = {
-    AddExpenseRoute.name: (routeData) {
+    AddExpRoute.name: (routeData) {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i1.AddExpPage(),
@@ -99,10 +99,10 @@ abstract class $AppRouter extends _i11.RootStackRouter {
 
 /// generated route for
 /// [_i1.AddExpPage]
-class AddExpenseRoute extends _i11.PageRouteInfo<void> {
-  const AddExpenseRoute({List<_i11.PageRouteInfo>? children})
+class AddExpRoute extends _i11.PageRouteInfo<void> {
+  const AddExpRoute({List<_i11.PageRouteInfo>? children})
       : super(
-          AddExpenseRoute.name,
+          AddExpRoute.name,
           initialChildren: children,
         );
 

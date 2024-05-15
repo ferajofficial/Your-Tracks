@@ -22,8 +22,16 @@ class AddExpenseView extends StatefulWidget {
 class _AddExpenseViewState extends State<AddExpenseView> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            context.maybePop();
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
+      ),
+      body: const Center(
         child: AppText(text: 'Add Expense view'),
       ),
     );

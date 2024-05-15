@@ -6,11 +6,6 @@ class AppRouter extends $AppRouter {
   @override
   late final List<AutoRoute> routes = [
     AdaptiveRoute(
-      page: SplashRoute.page,
-      path: '/',
-      initial: true,
-    ),
-    AdaptiveRoute(
       page: ProfileRoute.page,
       path: '/profile',
     ),
@@ -30,13 +25,15 @@ class AppRouter extends $AppRouter {
       page: SettingsRoute.page,
       path: '/settings',
     ),
+    AdaptiveRoute(page: AddExpRoute.page, path: '/add'),
     AdaptiveRoute(
       page: NavBarRoute.page,
       path: '/navbar',
+      initial: true,
       children: [
         AdaptiveRoute(page: HomeRoute.page),
         AdaptiveRoute(page: ExpenseSummaryRoute.page),
-        AdaptiveRoute(page: AddExpenseRoute.page),
+        AdaptiveRoute(page: SettingsRoute.page),
       ],
     ),
   ];

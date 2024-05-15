@@ -13,4 +13,7 @@ class AppColors {
   static const Color kPrimaryTextColor = Color(0xFFFFFFFF);
   static const Color kSecondaryTextColor = Color(0xFF4FBA00);
   static const Color kwhite = Colors.white;
+  static const Color kIncIcon = Colors.green;
+  static const Color kExpIcon = Colors.red;
+  
 }

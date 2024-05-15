@@ -1,10 +1,10 @@
 name: your_tracks
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.4.0 <4.0.0'
+  sdk: ">=3.3.0 <4.0.0"
 dependencies:
   flutter:
     sdk: flutter
@@ -22,4 +22,3 @@ dev_dependencies:
   build_runner: ^2.4.9
 flutter:
   uses-material-design: true
-

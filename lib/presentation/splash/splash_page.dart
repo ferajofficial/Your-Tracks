@@ -30,7 +30,7 @@ class _SplashViewState extends State<SplashView> {
     Timer(
       const Duration(seconds: 3),
       () {
-        context.router.replace(const NavBarRoute());
+        // context.router.replace(const NavBarRoute());
       },
     );
   }
