@@ -8,7 +8,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i11;
+import 'package:auto_route/auto_route.dart' as _i12;
 import 'package:your_tracks/presentation/add_expence/view/add_page.dart' as _i1;
 import 'package:your_tracks/presentation/auth/signin/view/signin_page.dart'
     as _i8;
@@ -25,73 +25,81 @@ import 'package:your_tracks/presentation/profile/view/profile_page.dart' as _i6;
 import 'package:your_tracks/presentation/settings/view/settings_page.dart'
     as _i7;
 import 'package:your_tracks/presentation/splash/splash_page.dart' as _i10;
+import 'package:your_tracks/presentation/transaction/view/transaction_page.dart'
+    as _i11;
 
-abstract class $AppRouter extends _i11.RootStackRouter {
+abstract class $AppRouter extends _i12.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i11.PageFactory> pagesMap = {
+  final Map<String, _i12.PageFactory> pagesMap = {
     AddExpRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i1.AddExpPage(),
       );
     },
     EditExpenseRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i2.EditExpensePage(),
       );
     },
     ExpenseSummaryRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i3.ExpenseSummaryPage(),
       );
     },
     HomeRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i4.HomePage(),
       );
     },
     NavBarRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i11.DeferredWidget(
+        child: _i12.DeferredWidget(
           _i5.loadLibrary,
           () => _i5.NavBarPage(),
         ),
       );
     },
     ProfileRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i6.ProfilePage(),
       );
     },
     SettingsRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i7.SettingsPage(),
       );
     },
     SigninRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i8.SigninPage(),
       );
     },
     SignupRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i9.SignupPage(),
       );
     },
     SplashRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
+      return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i10.SplashPage(),
+      );
+    },
+    TransactionRoute.name: (routeData) {
+      return _i12.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i11.TransactionPage(),
       );
     },
   };
@@ -99,8 +107,8 @@ abstract class $AppRouter extends _i11.RootStackRouter {
 
 /// generated route for
 /// [_i1.AddExpPage]
-class AddExpRoute extends _i11.PageRouteInfo<void> {
-  const AddExpRoute({List<_i11.PageRouteInfo>? children})
+class AddExpRoute extends _i12.PageRouteInfo<void> {
+  const AddExpRoute({List<_i12.PageRouteInfo>? children})
       : super(
           AddExpRoute.name,
           initialChildren: children,
@@ -108,13 +116,13 @@ class AddExpRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'AddExpRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i2.EditExpensePage]
-class EditExpenseRoute extends _i11.PageRouteInfo<void> {
-  const EditExpenseRoute({List<_i11.PageRouteInfo>? children})
+class EditExpenseRoute extends _i12.PageRouteInfo<void> {
+  const EditExpenseRoute({List<_i12.PageRouteInfo>? children})
       : super(
           EditExpenseRoute.name,
           initialChildren: children,
@@ -122,13 +130,13 @@ class EditExpenseRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'EditExpenseRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i3.ExpenseSummaryPage]
-class ExpenseSummaryRoute extends _i11.PageRouteInfo<void> {
-  const ExpenseSummaryRoute({List<_i11.PageRouteInfo>? children})
+class ExpenseSummaryRoute extends _i12.PageRouteInfo<void> {
+  const ExpenseSummaryRoute({List<_i12.PageRouteInfo>? children})
       : super(
           ExpenseSummaryRoute.name,
           initialChildren: children,
@@ -136,13 +144,13 @@ class ExpenseSummaryRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'ExpenseSummaryRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i4.HomePage]
-class HomeRoute extends _i11.PageRouteInfo<void> {
-  const HomeRoute({List<_i11.PageRouteInfo>? children})
+class HomeRoute extends _i12.PageRouteInfo<void> {
+  const HomeRoute({List<_i12.PageRouteInfo>? children})
       : super(
           HomeRoute.name,
           initialChildren: children,
@@ -150,13 +158,13 @@ class HomeRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'HomeRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i5.NavBarPage]
-class NavBarRoute extends _i11.PageRouteInfo<void> {
-  const NavBarRoute({List<_i11.PageRouteInfo>? children})
+class NavBarRoute extends _i12.PageRouteInfo<void> {
+  const NavBarRoute({List<_i12.PageRouteInfo>? children})
       : super(
           NavBarRoute.name,
           initialChildren: children,
@@ -164,13 +172,13 @@ class NavBarRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'NavBarRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i6.ProfilePage]
-class ProfileRoute extends _i11.PageRouteInfo<void> {
-  const ProfileRoute({List<_i11.PageRouteInfo>? children})
+class ProfileRoute extends _i12.PageRouteInfo<void> {
+  const ProfileRoute({List<_i12.PageRouteInfo>? children})
       : super(
           ProfileRoute.name,
           initialChildren: children,
@@ -178,13 +186,13 @@ class ProfileRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'ProfileRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i7.SettingsPage]
-class SettingsRoute extends _i11.PageRouteInfo<void> {
-  const SettingsRoute({List<_i11.PageRouteInfo>? children})
+class SettingsRoute extends _i12.PageRouteInfo<void> {
+  const SettingsRoute({List<_i12.PageRouteInfo>? children})
       : super(
           SettingsRoute.name,
           initialChildren: children,
@@ -192,13 +200,13 @@ class SettingsRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'SettingsRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i8.SigninPage]
-class SigninRoute extends _i11.PageRouteInfo<void> {
-  const SigninRoute({List<_i11.PageRouteInfo>? children})
+class SigninRoute extends _i12.PageRouteInfo<void> {
+  const SigninRoute({List<_i12.PageRouteInfo>? children})
       : super(
           SigninRoute.name,
           initialChildren: children,
@@ -206,13 +214,13 @@ class SigninRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'SigninRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i9.SignupPage]
-class SignupRoute extends _i11.PageRouteInfo<void> {
-  const SignupRoute({List<_i11.PageRouteInfo>? children})
+class SignupRoute extends _i12.PageRouteInfo<void> {
+  const SignupRoute({List<_i12.PageRouteInfo>? children})
       : super(
           SignupRoute.name,
           initialChildren: children,
@@ -220,13 +228,13 @@ class SignupRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'SignupRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i10.SplashPage]
-class SplashRoute extends _i11.PageRouteInfo<void> {
-  const SplashRoute({List<_i11.PageRouteInfo>? children})
+class SplashRoute extends _i12.PageRouteInfo<void> {
+  const SplashRoute({List<_i12.PageRouteInfo>? children})
       : super(
           SplashRoute.name,
           initialChildren: children,
@@ -234,5 +242,19 @@ class SplashRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'SplashRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i11.TransactionPage]
+class TransactionRoute extends _i12.PageRouteInfo<void> {
+  const TransactionRoute({List<_i12.PageRouteInfo>? children})
+      : super(
+          TransactionRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TransactionRoute';
+
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }

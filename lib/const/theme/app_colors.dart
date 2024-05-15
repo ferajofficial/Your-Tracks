@@ -15,5 +15,4 @@ class AppColors {
   static const Color kwhite = Colors.white;
   static const Color kIncIcon = Colors.green;
   static const Color kExpIcon = Colors.red;
-  
 }

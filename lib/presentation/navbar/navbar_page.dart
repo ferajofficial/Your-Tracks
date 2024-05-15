@@ -2,11 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:your_tracks/const/router/router.gr.dart';
 import 'package:your_tracks/const/theme/app_colors.dart';
-import 'package:your_tracks/shared/loader.dart';
+import 'package:your_tracks/shared/global_loader.dart';
 
 @RoutePage(
-    // deferredLoading: true,
-    )
+  deferredLoading: true,
+)
 class NavBarPage extends StatefulWidget {
   const NavBarPage({super.key});
 
@@ -33,24 +33,30 @@ class _NavBarPageState extends State<NavBarPage> {
     return isLoading
         ? const AppLoader()
         : AutoTabsScaffold(
-            routes: const [HomeRoute(), ExpenseSummaryRoute(), SettingsRoute()],
+            routes: const [
+                HomeRoute(),
+                TransactionRoute(),
+                ExpenseSummaryRoute(),
+                SettingsRoute()
+              ],
+            homeIndex: 0,
             bottomNavigationBuilder: (context, tabsRouter) {
               return NavigationBar(
-                backgroundColor: Colors.transparent,
+                labelBehavior:
+                    NavigationDestinationLabelBehavior.onlyShowSelected,
+                backgroundColor: AppColors.selectionColor.withOpacity(0.3),
                 selectedIndex: tabsRouter.activeIndex,
                 onDestinationSelected: tabsRouter.setActiveIndex,
-                indicatorColor: AppColors.kSecondaryBgColor.withOpacity(0.2),
+                indicatorColor: AppColors.kSecondaryBgColor.withOpacity(0.7),
                 indicatorShape: RoundedRectangleBorder(
-                    side: const BorderSide(
-                        width: 1, color: AppColors.kPrimaryBgColor),
                     borderRadius: BorderRadius.circular(25)),
                 destinations: [
                   NavigationDestination(
                     icon: Icon(
                       Icons.home,
                       color: tabsRouter.activeIndex == 0
-                          ? AppColors.kBlack
-                          : Colors.grey.withOpacity(0.4),
+                          ? AppColors.selectionColor
+                          : AppColors.kwhite.withOpacity(0.8),
                     ),
                     label: "Home",
                   ),
@@ -58,26 +64,26 @@ class _NavBarPageState extends State<NavBarPage> {
                     icon: Icon(
                       Icons.paypal_rounded,
                       color: tabsRouter.activeIndex == 1
-                          ? AppColors.kBlack
-                          : Colors.grey.withOpacity(0.4),
+                          ? AppColors.selectionColor
+                          : AppColors.kwhite.withOpacity(0.8),
                     ),
-                    label: "Transactions",
+                    label: "Expenses",
                   ),
                   NavigationDestination(
                     icon: Icon(
                       Icons.stacked_bar_chart_rounded,
-                      color: tabsRouter.activeIndex == 1
-                          ? AppColors.kBlack
-                          : Colors.grey.withOpacity(0.4),
+                      color: tabsRouter.activeIndex == 2
+                          ? AppColors.selectionColor
+                          : AppColors.kwhite.withOpacity(0.8),
                     ),
                     label: "Statistics",
                   ),
                   NavigationDestination(
                     icon: Icon(
                       Icons.settings,
-                      color: tabsRouter.activeIndex == 1
-                          ? AppColors.kBlack
-                          : Colors.grey.withOpacity(0.4),
+                      color: tabsRouter.activeIndex == 3
+                          ? AppColors.selectionColor
+                          : AppColors.kwhite.withOpacity(0.8),
                     ),
                     label: "Settings",
                   ),
@@ -87,12 +93,16 @@ class _NavBarPageState extends State<NavBarPage> {
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,
             floatingActionButton: FloatingActionButton(
-              // backgroundColor: AppColors.,
+              // elevation: 5,
+              backgroundColor: AppColors.selectionColor,
               shape: const CircleBorder(),
               onPressed: () {
                 context.router.push(const AddExpRoute());
               },
-              child: const Icon(Icons.add),
+              child: const Icon(
+                Icons.add,
+                color: AppColors.kwhite,
+              ),
             ));
   }
 }

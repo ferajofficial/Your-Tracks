@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:your_tracks/const/fonts/app_text.dart';
 import 'package:your_tracks/const/theme/app_colors.dart';
@@ -51,11 +50,13 @@ class StatusCard extends StatelessWidget {
                 counterText: 'Total Income',
                 counterValue: '₹ 2,090,5.0',
                 counterIconColor: AppColors.kIncIcon,
+                counterIcon: Icons.arrow_drop_up,
               ),
               Counters(
                 counterText: 'Total Expenses',
                 counterValue: '₹ 2,090,5.0',
                 counterIconColor: AppColors.kExpIcon,
+                counterIcon: Icons.arrow_drop_down,
               ),
             ],
           ),

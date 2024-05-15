@@ -7,8 +7,9 @@ class Counters extends StatelessWidget {
   final String counterText;
   final String counterValue;
   final Color counterIconColor;
+  final IconData counterIcon;
   const Counters({
-    super.key, required this.counterText, required this.counterValue, required this.counterIconColor,
+    super.key, required this.counterText, required this.counterValue, required this.counterIconColor, required this.counterIcon,
   });
 
   @override
@@ -19,7 +20,7 @@ class Counters extends StatelessWidget {
           radius: 15,
           backgroundColor: AppColors.kwhite.withOpacity(0.3),
           child:  Icon(
-            Icons.arrow_drop_down_rounded,
+           counterIcon,
             color: counterIconColor,
             size: 30,
           ),
