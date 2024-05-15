@@ -35,59 +35,66 @@ class _NavBarPageState extends State<NavBarPage> {
         : AutoTabsScaffold(
             routes: const [
                 HomeRoute(),
-                TransactionRoute(),
+                AllExpensesRoute(),
                 ExpenseSummaryRoute(),
                 SettingsRoute()
               ],
             homeIndex: 0,
             bottomNavigationBuilder: (context, tabsRouter) {
-              return NavigationBar(
-                labelBehavior:
-                    NavigationDestinationLabelBehavior.onlyShowSelected,
-                backgroundColor: AppColors.selectionColor.withOpacity(0.3),
-                selectedIndex: tabsRouter.activeIndex,
-                onDestinationSelected: tabsRouter.setActiveIndex,
-                indicatorColor: AppColors.kSecondaryBgColor.withOpacity(0.7),
-                indicatorShape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25)),
-                destinations: [
-                  NavigationDestination(
-                    icon: Icon(
-                      Icons.home,
-                      color: tabsRouter.activeIndex == 0
-                          ? AppColors.selectionColor
-                          : AppColors.kwhite.withOpacity(0.8),
+              return ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(25),
+                  topRight: Radius.circular(25),
+                ),
+                child: NavigationBar(
+                  height: 70,
+                  labelBehavior:
+                      NavigationDestinationLabelBehavior.onlyShowSelected,
+                  backgroundColor: AppColors.selectionColor.withOpacity(0.3),
+                  selectedIndex: tabsRouter.activeIndex,
+                  onDestinationSelected: tabsRouter.setActiveIndex,
+                  indicatorColor: AppColors.kSecondaryBgColor.withOpacity(0.7),
+                  indicatorShape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25)),
+                  destinations: [
+                    NavigationDestination(
+                      icon: Icon(
+                        Icons.home,
+                        color: tabsRouter.activeIndex == 0
+                            ? AppColors.selectionColor
+                            : AppColors.kwhite.withOpacity(0.8),
+                      ),
+                      label: "Home",
                     ),
-                    label: "Home",
-                  ),
-                  NavigationDestination(
-                    icon: Icon(
-                      Icons.paypal_rounded,
-                      color: tabsRouter.activeIndex == 1
-                          ? AppColors.selectionColor
-                          : AppColors.kwhite.withOpacity(0.8),
+                    NavigationDestination(
+                      icon: Icon(
+                        Icons.paypal_rounded,
+                        color: tabsRouter.activeIndex == 1
+                            ? AppColors.selectionColor
+                            : AppColors.kwhite.withOpacity(0.8),
+                      ),
+                      label: "Expenses",
                     ),
-                    label: "Expenses",
-                  ),
-                  NavigationDestination(
-                    icon: Icon(
-                      Icons.stacked_bar_chart_rounded,
-                      color: tabsRouter.activeIndex == 2
-                          ? AppColors.selectionColor
-                          : AppColors.kwhite.withOpacity(0.8),
+                    NavigationDestination(
+                      icon: Icon(
+                        Icons.stacked_bar_chart_rounded,
+                        color: tabsRouter.activeIndex == 2
+                            ? AppColors.selectionColor
+                            : AppColors.kwhite.withOpacity(0.8),
+                      ),
+                      label: "Statistics",
                     ),
-                    label: "Statistics",
-                  ),
-                  NavigationDestination(
-                    icon: Icon(
-                      Icons.settings,
-                      color: tabsRouter.activeIndex == 3
-                          ? AppColors.selectionColor
-                          : AppColors.kwhite.withOpacity(0.8),
+                    NavigationDestination(
+                      icon: Icon(
+                        Icons.settings,
+                        color: tabsRouter.activeIndex == 3
+                            ? AppColors.selectionColor
+                            : AppColors.kwhite.withOpacity(0.8),
+                      ),
+                      label: "Settings",
                     ),
-                    label: "Settings",
-                  ),
-                ],
+                  ],
+                ),
               );
             },
             floatingActionButtonLocation:

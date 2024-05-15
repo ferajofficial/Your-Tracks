@@ -5,39 +5,29 @@ import 'package:your_tracks/const/fonts/app_text.dart';
 import 'package:your_tracks/const/theme/app_colors.dart';
 
 @RoutePage()
-class TransactionPage extends StatelessWidget {
-  const TransactionPage({super.key});
+class AllExpensesPage extends StatelessWidget {
+  const AllExpensesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const TransactionPageView();
+    return const AllExpensesPageView();
   }
 }
 
-class TransactionPageView extends StatefulWidget {
-  const TransactionPageView({super.key});
+class AllExpensesPageView extends StatefulWidget {
+  const AllExpensesPageView({super.key});
 
   @override
-  State<TransactionPageView> createState() => _TransactionPageViewState();
+  State<AllExpensesPageView> createState() => _AllExpensesPageViewState();
 }
 
-class _TransactionPageViewState extends State<TransactionPageView> {
+class _AllExpensesPageViewState extends State<AllExpensesPageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: AppColors.kSecondaryBgColor,
         appBar: AppBar(
-          leading: CircleAvatar(
-            backgroundColor: AppColors.selectionColor.withOpacity(0.5),
-            child: IconButton(
-              onPressed: () {
-                context.maybePop();
-              },
-              icon: const Icon(
-                Icons.arrow_back,
-                color: AppColors.kwhite,
-              ),
-            ),
-          ).pOnly(left: 15),
+          backgroundColor: AppColors.kSecondaryBgColor,
           title: const AppText(text: 'All Your Expenses', fontSize: 20),
           centerTitle: true,
         ),
@@ -71,6 +61,7 @@ class _TransactionPageViewState extends State<TransactionPageView> {
               Expanded(
                 child: ListView.separated(
                         itemBuilder: (context, index) => Card(
+                              color: AppColors.selectionColor.withOpacity(0.1),
                               elevation: 0,
                               child: ListTile(
                                 shape: RoundedRectangleBorder(

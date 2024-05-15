@@ -11,11 +11,14 @@ class YourTracks extends StatefulWidget {
 
 class _YourTracksState extends State<YourTracks> {
   final AppRouter _appRouter = AppRouter();
+  ThemeMode _currentThemeMode = ThemeMode.light;
+
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
+      themeMode: _currentThemeMode,
       routerConfig: _appRouter.config(),
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),

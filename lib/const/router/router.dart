@@ -32,7 +32,7 @@ class AppRouter extends $AppRouter {
       initial: true,
       children: [
         AdaptiveRoute(page: HomeRoute.page),
-        AdaptiveRoute(page: TransactionRoute.page),
+AdaptiveRoute(page: AllExpensesRoute.page),
         AdaptiveRoute(page: ExpenseSummaryRoute.page),
         AdaptiveRoute(page: SettingsRoute.page),
       ],

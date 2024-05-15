@@ -4,6 +4,7 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:your_tracks/const/fonts/app_text.dart';
 import 'package:your_tracks/const/theme/app_colors.dart';
 import 'package:your_tracks/presentation/add_expence/widgets/expense_form.dart';
+import 'package:your_tracks/shared/global_button.dart';
 
 @RoutePage()
 class AddExpPage extends StatelessWidget {
@@ -26,7 +27,9 @@ class _AddExpenseViewState extends State<AddExpenseView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: AppColors.kSecondaryBgColor,
         appBar: AppBar(
+          backgroundColor: AppColors.kSecondaryBgColor,
           leading: CircleAvatar(
             backgroundColor: AppColors.selectionColor.withOpacity(0.5),
             child: IconButton(
@@ -52,23 +55,8 @@ class _AddExpenseViewState extends State<AddExpenseView> {
                     fontWeight: FontWeight.w500)
                 .p(10),
             const ExpenseForm().p12(),
-            ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      elevation: 0,
-                      backgroundColor:
-                          AppColors.selectionColor.withOpacity(0.8),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    child: const AppText(
-                        text: 'SAVE',
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.kwhite))
-                .p16()
-                .h(80),
+            20.heightBox,
+            GlobalButton(buttonText: 'Save', onPressed: () {}).p16().h(80)
           ],
         )));
   }
