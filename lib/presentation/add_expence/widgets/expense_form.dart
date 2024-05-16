@@ -4,32 +4,39 @@ import 'package:intl/intl.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:your_tracks/const/theme/app_colors.dart';
 
-class Category {
+class CategoryList {
   final String name;
   final IconData icon;
 
-  Category(this.name, this.icon);
+  CategoryList(this.name, this.icon);
 }
 
 class ExpenseForm extends StatefulWidget {
-  const ExpenseForm({super.key});
+  final TextEditingController dateController;
+  final TextEditingController nameController;
+  final TextEditingController expenseController;
+  const ExpenseForm(
+      {super.key,
+      required this.dateController,
+      required this.nameController,
+      required this.expenseController});
 
   @override
   _ExpenseFormState createState() => _ExpenseFormState();
 }
 
 class _ExpenseFormState extends State<ExpenseForm> {
-  final List<Category> categories = [
-    Category('Food', Icons.fastfood),
-    Category('Movie', Icons.movie),
-    Category('Travel', Icons.directions_car),
-    Category('Shopping', Icons.shopping_cart),
-    Category('Fuel', Icons.local_gas_station),
-    Category('Mobile', Icons.phone_android),
-    Category('grocery', Icons.local_grocery_store),
+  final List<CategoryList> categories = [
+    CategoryList('Food', Icons.fastfood),
+    CategoryList('Movie', Icons.movie),
+    CategoryList('Travel', Icons.directions_car),
+    CategoryList('Shopping', Icons.shopping_cart),
+    CategoryList('Fuel', Icons.local_gas_station),
+    CategoryList('Mobile', Icons.phone_android),
+    CategoryList('grocery', Icons.local_grocery_store),
   ];
 
-  Category? selectedCategory;
+  CategoryList? selectedCategory;
   TextEditingController dateController = TextEditingController();
 
   @override
@@ -44,6 +51,7 @@ class _ExpenseFormState extends State<ExpenseForm> {
     return Column(
       children: [
         TextField(
+          controller: widget.expenseController,
           keyboardType: TextInputType.number,
           decoration: InputDecoration(
             hintText: 'Enter Expenses',
@@ -74,14 +82,15 @@ class _ExpenseFormState extends State<ExpenseForm> {
         20.heightBox,
         TextField(
           keyboardType: TextInputType.text,
+          controller: widget.nameController,
           decoration: InputDecoration(
-            hintText: 'Enter Description',
+            hintText: 'Enter Name',
             hintStyle: TextStyle(
               textBaseline: TextBaseline.alphabetic,
               color: AppColors.kBlack,
               fontFamily: GoogleFonts.poppins().fontFamily,
             ),
-            labelText: 'Description',
+            labelText: 'Name',
             labelStyle: TextStyle(
               color: AppColors.kBlack,
               fontFamily: GoogleFonts.poppins().fontFamily,
@@ -113,19 +122,19 @@ class _ExpenseFormState extends State<ExpenseForm> {
           ),
         ).p(10),
         10.heightBox,
-        DropdownButtonFormField<Category>(
+        DropdownButtonFormField<CategoryList>(
           hint: const Text('Select a category'),
           value: selectedCategory,
-          onChanged: (Category? newValue) {
+          onChanged: (CategoryList? newValue) {
             setState(() {
               selectedCategory = newValue;
             });
           },
-          items: categories.map((Category category) {
-            return DropdownMenuItem<Category>(
+          items: categories.map((CategoryList category) {
+            return DropdownMenuItem<CategoryList>(
               value: category,
               child: Row(
-                children: <Widget>[
+                children: [
                   Icon(category.icon),
                   const SizedBox(width: 10),
                   Text(category.name),

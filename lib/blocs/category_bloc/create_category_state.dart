@@ -1,15 +1,38 @@
-part of 'create_category_bloc.dart';
+// part of 'create_category_bloc.dart';
 
-sealed class CreateCategoryState extends Equatable {
-  const CreateCategoryState();
+// sealed class CreateCategoryState extends Equatable {
+//   const CreateCategoryState();
   
+//   @override
+//   List<Object> get props => [];
+// }
+
+// final class CreateCategoryInitial extends CreateCategoryState {}
+// final class CreateCategoryFailure extends CreateCategoryState {}
+
+// final class CreateCategoryLoading extends CreateCategoryState {}
+
+// final class CreateCategorySuccess extends CreateCategoryState {}
+import 'package:equatable/equatable.dart';
+
+abstract class CategoryState extends Equatable {
+  const CategoryState();
+
   @override
   List<Object> get props => [];
 }
 
-final class CreateCategoryInitial extends CreateCategoryState {}
-final class CreateCategoryFailure extends CreateCategoryState {}
+class CategoryInitial extends CategoryState {}
 
-final class CreateCategoryLoading extends CreateCategoryState {}
+class CategoryLoading extends CategoryState {}
 
-final class CreateCategorySuccess extends CreateCategoryState {}
+class CategorySuccess extends CategoryState {}
+
+class CategoryFailure extends CategoryState {
+  final String error;
+
+  const CategoryFailure(this.error);
+
+  @override
+  List<Object> get props => [error];
+}
