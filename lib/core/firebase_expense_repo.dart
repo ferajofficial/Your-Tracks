@@ -1,64 +1,94 @@
+// import 'dart:developer';
+
+// import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:your_tracks/core/entities/expense_entities.dart';
+
+// import 'package:your_tracks/features/models/expense.dart';
+
+// class FirebaseExpenseRepo  {
+//   final expenseCollection = FirebaseFirestore.instance.collection('expenses');
+
+//   Future<void> createExpense(Expense expense) async {
+//     try {
+//       await expenseCollection
+//           .doc(expense.expenseId)
+//           .set(expense.toEntity().toDocument());
+//     } catch (e) {
+//       log(e.toString());
+//       rethrow;
+//     }
+//   }
+
+//   // Future<List<Expense>> getExpenses() async {
+//   //   try {
+//   //     log('message: getExpenses');
+//   //     final result = await expenseCollection.get().then((value) => value.docs
+//   //         .map((e) => Expense.fromEntity(ExpenseEntity.fromDocument(e.data())))
+//   //         .toList());
+//   //     log('result:$result');
+//   //     return result;
+//   //   } catch (e) {
+//   //     log(e.toString());
+//   //     rethrow;
+//   //   }
+//   // }
+//   Future<List<Expense>> getExpenses() async {
+//     try {
+//       log('Fetching expenses from Firestore');
+//       final querySnapshot = await expenseCollection.get();
+//       log('Fetched documents: ${querySnapshot.docs.length}');
+//       final result = querySnapshot.docs.map((doc) {
+//         final data = doc.data() as Map<String, dynamic>;
+//         log('Document data: $data');
+//         return Expense.fromEntity(ExpenseEntity.fromDocument(data));
+//       }).toList();
+//       log('Mapped expenses: $result');
+//       return result;
+//     } catch (e) {
+//       log('Error fetching expenses: $e');
+//       rethrow;
+//     }
+//   }
+
 import 'dart:developer';
 
+// }
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:your_tracks/core/entities/category_entities.dart';
+import 'package:your_tracks/core/entities/expense_entities.dart';
+import 'package:your_tracks/features/models/expense.dart';
 
-import 'package:your_tracks/core/expense_repo.dart';
-import 'package:your_tracks/features/models/category.dart';
-
-class FirebaseExpenseRepo implements ExpenseRepository {
-  final categoryCollection =
-      FirebaseFirestore.instance.collection('categories');
+class FirebaseExpenseRepo {
   final expenseCollection = FirebaseFirestore.instance.collection('expenses');
 
-@override
-  Future<void> createCategory(Category category) async {
+  Future<void> createExpense(Expense expense) async {
     try {
-      await categoryCollection
-          .doc(category.categoryId)
-          .set(category.toEntity().toDocument());
+      await expenseCollection
+          .doc(expense.expenseId)
+          .set(expense.toEntity().toDocument());
     } catch (e) {
       log(e.toString());
       rethrow;
     }
   }
 
-  @override
-  Future<List<Category>> getCategory() async {
+  Future<List<Expense>> getExpenses() async {
     try {
-      return await categoryCollection.get().then((value) => value.docs
-          .map(
-              (e) => Category.fromEntity(CategoryEntity.fromDocument(e.data())))
+      return await expenseCollection.get().then((value) => value.docs
+          .map((e) => Expense.fromEntity(ExpenseEntity.fromDocument(e.data())))
           .toList());
     } catch (e) {
       log(e.toString());
       rethrow;
     }
   }
-
-  // @override
-  // Future<void> createExpense(Expense expense) async {
-  //   try {
-  //     await expenseCollection
-  //         .doc(expense.expenseId)
-  //         .set(expense.toEntity().toDocument());
-  //   } catch (e) {
-  //     log(e.toString());
-  //     rethrow;
-  //   }
+  // Stream<List<Expense>> getExpenses() {
+  //   return expenseCollection.snapshots().map((snapshot) {
+  //     log('Snapshot received with ${snapshot.docs.length} documents');
+  //     return snapshot.docs.map((doc) {
+  //       final data = doc.data();
+  //       log('Document data: $data');
+  //       return Expense.fromEntity(ExpenseEntity.fromDocument(data));
+  //     }).toList();
+  //   });
   // }
-
-  // @override
-  // Future<List<Expense>> getExpenses() async {
-  //   try {
-  //     return await expenseCollection.get().then((value) => value.docs
-  //         .map((e) => Expense.fromEntity(ExpenseEntity.fromDocument(e.data())))
-  //         .toList());
-  //   } catch (e) {
-  //     log(e.toString());
-  //     rethrow;
-  //   }
-  // }
-
-
 }

@@ -3,8 +3,8 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:your_tracks/const/fonts/app_text.dart';
 import 'package:your_tracks/const/theme/app_colors.dart';
 
-class Header extends StatelessWidget {
-  const Header({
+class AppHeader extends StatelessWidget {
+  const AppHeader({
     super.key,
   });
 

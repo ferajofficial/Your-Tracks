@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:your_tracks/blocs/category_bloc/create_category_bloc.dart';
+import 'package:your_tracks/blocs/create_expense/create_expense_bloc.dart';
+import 'package:your_tracks/blocs/get_expense/get_expense_bloc.dart';
 import 'package:your_tracks/const/router/router.dart';
+import 'package:your_tracks/core/firebase_expense_repo.dart';
 
 class YourTracks extends StatefulWidget {
   const YourTracks({super.key});
@@ -18,9 +20,8 @@ class _YourTracksState extends State<YourTracks> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<CategoryBloc>(
-          create: (BuildContext context) => CategoryBloc(),
-        ),
+        BlocProvider(create: (_) => GetExpensesBloc(FirebaseExpenseRepo())),
+        BlocProvider(create: (_) => CreateExpenseBloc()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
